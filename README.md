@@ -1,4 +1,4 @@
-# treino
+# Projeto with vue3 e Tailwind
 
 ## Project setup
 ```
