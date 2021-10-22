@@ -1,17 +1,23 @@
 <template>
   <div class="home">
-    <AppMain msg="Tchau mundo"/>
+    <NavBar/>
+    <Carrousel/>
+    <router-link to="/about"/>
+<!--    <AppMain msg="Tchau mundo"/>-->
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import AppMain from '@/components/AppMain.vue'
-
+// import AppMain from '@/components/AppMain.vue'
+import NavBar from '../components/NavBar'
+import Carrousel from '../components/carrousel'
 export default {
   name: 'Home',
   components: {
-    AppMain
+    Carrousel,
+    // AppMain,
+    NavBar
   }
 }
 </script>
