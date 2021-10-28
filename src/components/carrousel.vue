@@ -6,34 +6,17 @@
     :pagination="{ clickable: true }"
     @swiper="onSwiper"
     @slideChange="onSlideChange"
+    v-for="images of img" v-bind:key="images"
   >
     <swiper-slide>
-      <h2>Slide 1</h2>
-      <p>--------</p>
-      <p>--------</p>
-      <p>--------</p>
-      <p>--------</p>
-    </swiper-slide>
-    <swiper-slide>
-      <h2>Slide 2</h2>
-    </swiper-slide>
-    <swiper-slide>
-      <h2>Slide 3</h2>
-    </swiper-slide>
-    <swiper-slide>
-      <h2>Slide 4</h2>
-    </swiper-slide>
-    <swiper-slide>
-      <h2>Slide 5</h2>
-    </swiper-slide>
-    <swiper-slide>
-      <h2>Slide 6</h2>
+      <img :src="images"/>
     </swiper-slide>
   </swiper>
 </template>
 <script>
 
 import SwiperCore, { Navigation, Pagination, A11y } from 'swiper'
+import dados from './dados.json'
 
 import { Swiper, SwiperSlide } from 'swiper/vue'
 
@@ -48,12 +31,27 @@ export default {
     Swiper,
     SwiperSlide
   },
+  data () {
+    return {
+      img: []
+    }
+  },
   methods: {
+    onEnter () {
+      console.log(dados)
+    },
     onSwiper (swiper) {
       // console.log(swiper)
     },
     onSlideChange () {
       // console.log('slide change')
+    }
+  },
+  mounted () {
+    // for (let i = 0; i < dados.Insta.length; i++) {
+    for (let i = 0; i < 3; i++) {
+      console.log(dados.Insta[i].url)
+      this.img.push(dados.Insta[i].url)
     }
   }
 }
